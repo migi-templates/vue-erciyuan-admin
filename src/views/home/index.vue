@@ -14,7 +14,6 @@ let imageContainer = null,
   widthOfImage = 0,
   gap = 5,
   lineArr = [],
-  // mdImages = [],
   rowNum = 3,
   imageNodes = []
 

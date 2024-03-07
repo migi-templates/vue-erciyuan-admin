@@ -4,6 +4,8 @@ import vue from '@vitejs/plugin-vue'
 import Unocss from 'unocss/vite'
 import { presetUno, presetAttributify } from 'unocss'
 
+import vueJsx from '@vitejs/plugin-vue-jsx'
+
 import path from 'path'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 // https://vitejs.dev/config/
@@ -16,7 +18,7 @@ export default defineConfig({
       // 使用Unocss
       presets: [presetUno(), presetAttributify()],
     }),
-
+    vueJsx(),
     createSvgIconsPlugin({
       // 指定需要缓存的图标文件夹
       iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],

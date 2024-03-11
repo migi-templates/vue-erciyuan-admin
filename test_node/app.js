@@ -6,7 +6,12 @@ const port = 9090
 
 app.get('/images', (req, res) => {
   const imagesPath = './images'
-  const images = fs.readdirSync(imagesPath).map((file) => `${req.protocol}://${req.get('host')}/images/${file}`)
+  const images = fs.readdirSync(imagesPath).map((file) => {
+    return {
+      url: `${req.protocol}://${req.get('host')}/images/${file}`,
+      full_loaded: false,
+    }
+  })
 
   res.status(200).send(images)
 })
@@ -17,7 +22,7 @@ app.post('/getList', (req, res) => {
       meta: {
         hidden: false,
         title: '系统管理',
-        icon: "document",
+        icon: 'document',
       },
       component: 'Layout',
       name: '/system',
@@ -31,7 +36,7 @@ app.post('/getList', (req, res) => {
             hidden: false,
             keepAlive: true,
             title: '用户管理',
-            icon: "document",
+            icon: 'document',
           },
           component: 'two/index',
         },
@@ -42,7 +47,7 @@ app.post('/getList', (req, res) => {
             hidden: false,
             keepAlive: true,
             title: '用户测试',
-            icon: "document",
+            icon: 'document',
           },
           component: 'two/test',
         },

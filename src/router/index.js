@@ -8,7 +8,7 @@ export const constantRoutes = [
     path: '/',
     name: '/',
     meta: {
-      title: '主页',
+      title: '瀑布流',
     },
     redirect: '/home',
     component: () => import('@/Layout/index.vue'),
@@ -18,7 +18,7 @@ export const constantRoutes = [
         name: 'home',
         meta: {
           icon: "homepage",
-          title: '首页',
+          title: '瀑布流',
           hidden: false,
         },
         component: () => import('@/views/home/index.vue'),

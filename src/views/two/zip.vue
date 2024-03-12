@@ -1,18 +1,21 @@
 <template>
   <div class="p-10px bg-#fff">
-    <div class="flex gap-20px flex-wrap mb-20px">
-      <img v-for="url in store.imgList" @click="xia(url.url, url.url)" :key="url.url" :src="url.url" class="w-250px h-240px object-cover" alt="" />
+    <el-button @click="downloadImg">批量下载图片成zip</el-button>
+    <el-button class="ml-25px text-16px">(点击图片下载图片)</el-button>
+    <div class="flex gap-10px flex-wrap mb-20px lg:content-w mx-auto">
+      <img lazy v-for="url in store.imgList" @click="xia(url.url, url.url)" :key="url.url" :src="url.url" class="img flex-1 h-240px object-cover" alt="" />
     </div>
-
-    <el-button @click="downloadImg">批量下载图</el-button>
   </div>
 </template>
 
 <script setup>
+import { onMounted } from 'vue'
 import { generalStore } from '@/store/general.js'
 import JSZip from 'jszip'
 import { saveAs } from 'file-saver'
 import { ElMessage } from 'element-plus'
+
+import gsap from 'gsap'
 
 const store = generalStore()
 
@@ -101,6 +104,20 @@ const xia = (imgsrc, fileName) => {
   }
   image.src = imgsrc
 }
+
+onMounted(() => {
+  const lazyImages = document.querySelectorAll('.img')
+
+  lazyImages.forEach((div, index) => {
+    gsap.from(div, {
+      opacity: 0,
+      y: 50,
+      duration: 0.5,
+      delay: index * 0.15,
+      scrollTrigger: div,
+    })
+  })
+})
 </script>
 
 <style></style>

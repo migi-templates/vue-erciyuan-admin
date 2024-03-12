@@ -36,11 +36,11 @@ app.post('/getList', (req, res) => {
       component: 'Layout',
       name: '/system',
       path: '/system',
-      redirect: '/system/two',
+      redirect: '/system/table',
       children: [
         {
-          name: 'Two',
-          path: 'two',
+          name: 'Table',
+          path: 'table',
           meta: {
             hidden: false,
             keepAlive: true,
@@ -50,8 +50,8 @@ app.post('/getList', (req, res) => {
           component: 'two/table',
         },
         {
-          name: 'Test',
-          path: 'test',
+          name: 'Zip',
+          path: 'zip',
           meta: {
             hidden: false,
             keepAlive: true,
@@ -59,6 +59,17 @@ app.post('/getList', (req, res) => {
             icon: 'document',
           },
           component: 'two/zip',
+        },
+        {
+          name: 'Icons',
+          path: 'icons',
+          meta: {
+            hidden: false,
+            keepAlive: true,
+            title: 'Icons',
+            icon: 'document',
+          },
+          component: 'two/icons',
         },
       ],
     },

@@ -1,5 +1,5 @@
 <template>
-  <div class="p-10px bg-#fff">
+  <div class="p-10px bg-#fff h-full overflow-auto">
     <el-button @click="downloadImg">批量下载图片成zip</el-button>
     <el-button class="ml-25px text-16px">(点击图片下载图片)</el-button>
     <div class="flex gap-10px flex-wrap mb-20px lg:content-w mx-auto">

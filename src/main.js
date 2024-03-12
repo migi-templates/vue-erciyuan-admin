@@ -15,10 +15,8 @@ import './permission'
 const pinia = createPinia()
 pinia.use(piniaPluginPersistedstate)
 const app = createApp(App)
-/*
- **全局注册组件
- ** 放在components/global文件夹下
- */
+
+// 全局注册组件
 const components = import.meta.glob('./components/**/*.vue') // 异步方式
 for (const [key, value] of Object.entries(components)) {
   const name = key.slice(0, key.lastIndexOf('/')).split('/').pop()

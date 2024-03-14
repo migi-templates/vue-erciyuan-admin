@@ -27,6 +27,9 @@ const lose = () => {
     })
     return
   }
+  if (store.firstId > store.pokemmo[0].id) {
+    store.removePokeFront()
+  }
   if (!store.firstId || !store.amount) {
     store.firstId = 1
     store.amount = 1
@@ -36,10 +39,6 @@ const lose = () => {
     store.removePoke()
   }
 
-  if(store.firstId > store.pokemmo[0].id) {
-    store.removePokeFront()
-  }
-  
   initPokemons()
 }
 
@@ -49,7 +48,7 @@ const initPokemons = async () => {
   }
 }
 onMounted(() => {
-  console.log(store.pokemmo,"2312");
+  console.log(store.pokemmo, '2312')
   initPokemons()
 })
 </script>

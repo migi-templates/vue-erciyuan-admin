@@ -7,14 +7,28 @@
 </template>
 
 <script setup>
-import { reactive, computed } from 'vue'
+import { reactive, computed, onMounted } from 'vue'
 import { pokemmoStore } from '@/store/pokemmo'
 
+import gsap from 'gsap'
 const store = pokemmoStore()
 const getColor = computed(() => {
   return (e) => {
     return colors[e.types[0].type.name]
   }
+})
+onMounted(() => {
+  const lazyImages = document.querySelectorAll('.five_half')
+
+  lazyImages.forEach((div, index) => {
+    gsap.from(div, {
+      opacity: 0,
+      y: 50,
+      duration: 0.5,
+      delay: index * 0.15,
+      scrollTrigger: div,
+    })
+  })
 })
 const colors = reactive({
   fire: '#ff927d',

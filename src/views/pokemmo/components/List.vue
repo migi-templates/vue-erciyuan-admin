@@ -11,8 +11,6 @@ import { reactive, computed } from 'vue'
 import { pokemmoStore } from '@/store/pokemmo'
 
 const store = pokemmoStore()
-console.log(store.pokemmo)
-
 const getColor = computed(() => {
   return (e) => {
     return colors[e.types[0].type.name]

@@ -30,6 +30,30 @@ app.post('/getList', (req, res) => {
     {
       meta: {
         hidden: false,
+        title: '宝可梦',
+        icon: 'document',
+      },
+      component: 'Layout',
+      name: '/pokemmo',
+      path: '/pokemmo',
+      redirect: '/pokemmo/index',
+      children: [
+        {
+          name: 'index',
+          path: 'index',
+          meta: {
+            hidden: false,
+            keepAlive: true,
+            title: '宝可梦',
+            icon: 'document',
+          },
+          component: 'pokemmo/index',
+        },
+      ],
+    },
+    {
+      meta: {
+        hidden: false,
         title: '组件管理',
         icon: 'document',
       },

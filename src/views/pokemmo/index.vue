@@ -1,5 +1,5 @@
 <template>
-  <div class="p-10px overflow-auto bg-#fff">
+  <div class="p-10px overflow-auto bg-#fff h-full">
     <Number />
     <List />
   </div>

@@ -2,48 +2,54 @@
   <div class="number">
     <div class="num-container">
       <label for="amount">Amount: </label>
-      <input v-model.trim.number="amount" maxlength="3" @blur="lose" />
+      <input v-model.trim.number="store.amount" maxlength="3" @blur="lose" />
     </div>
     <div class="num-container">
       <label for="firstId">First id: </label>
-      <input v-model.trim.number="firstId" maxlength="3" @blur="lose" />
+      <input v-model.trim.number="store.firstId" maxlength="3" @blur="lose" />
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import { ElMessage } from 'element-plus'
 import { pokemmoStore } from '@/store/pokemmo'
 const store = pokemmoStore()
-const amount = ref(5)
-const firstId = ref(1)
 
-const Cycle = computed(() => parseInt(amount.value / 1 + firstId.value / 1 - 1))
+const Cycle = computed(() => parseInt(store.amount + store.firstId - 1))
 
 const lose = () => {
-  if (amount.value >= 887) {
+  if (store.amount >= 887) {
     ElMessage({
       message: '超出最大宝可梦数量',
       type: 'warning',
     })
     return
   }
-  if (!firstId.value || !amount.value) {
-    firstId.value = 1
-    amount.value = 1
+  if (!store.firstId || !store.amount) {
+    store.firstId = 1
+    store.amount = 1
+    store.removePoke()
   }
-  store.removePoke()
+  if (store.amount != store.pokemmo.length) {
+    store.removePoke()
+  }
+
+  if(store.firstId > store.pokemmo[0].id) {
+    store.removePokeFront()
+  }
+  
   initPokemons()
 }
 
 const initPokemons = async () => {
-  for (let i = firstId.value; i <= Cycle.value; i++) {
+  for (let i = store.firstId; i <= Cycle.value; i++) {
     await store.getPokemmo(i)
   }
 }
 onMounted(() => {
-  store.removePoke()
+  console.log(store.pokemmo,"2312");
   initPokemons()
 })
 </script>

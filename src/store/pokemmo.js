@@ -7,11 +7,17 @@ export const pokemmoStore = defineStore(
   'pokemmo',
   () => {
     const pokemmo = ref([])
+    const amount = ref(5)
+    const firstId = ref(1)
+
     const setPokemmo = (value) => {
       pokemmo.value.push(value)
     }
     const removePoke = () => {
       pokemmo.value = []
+    }
+    const removePokeFront = () => {
+      pokemmo.value = pokemmo.value.filter((v) => v.id >= firstId.value)
     }
 
     const getPokemmo = async (e) => {
@@ -24,7 +30,8 @@ export const pokemmoStore = defineStore(
         }
       }
     }
-    return { pokemmo, getPokemmo, removePoke }
+
+    return { pokemmo, getPokemmo, removePoke, amount, firstId, removePokeFront }
   },
   {
     persist: true,

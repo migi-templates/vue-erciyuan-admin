@@ -30,17 +30,41 @@ app.post('/getList', (req, res) => {
     {
       meta: {
         hidden: false,
+        title: 'echarts',
+        icon: 'document',
+      },
+      component: 'Layout',
+      name: '/echarts',
+      path: '/echarts',
+      redirect: '/echarts/echarts',
+      children: [
+        {
+          name: 'echarts',
+          path: 'echarts',
+          meta: {
+            hidden: false,
+            keepAlive: true,
+            title: 'echarts',
+            icon: 'document',
+          },
+          component: 'echarts/index', // 文件夹/文件名
+        },
+      ],
+    },
+    {
+      meta: {
+        hidden: false,
         title: '宝可梦',
         icon: 'document',
       },
       component: 'Layout',
       name: '/pokemmo',
       path: '/pokemmo',
-      redirect: '/pokemmo/index',
+      redirect: '/pokemmo/pokemmo',
       children: [
         {
-          name: 'index',
-          path: 'index',
+          name: 'pokemmo',
+          path: 'pokemmo',
           meta: {
             hidden: false,
             keepAlive: true,
@@ -69,7 +93,7 @@ app.post('/getList', (req, res) => {
             hidden: false,
             keepAlive: true,
             title: '动态table',
-            icon: 'document',
+            icon: 'table',
           },
           component: 'two/table',
         },
@@ -80,7 +104,7 @@ app.post('/getList', (req, res) => {
             hidden: false,
             keepAlive: true,
             title: '下载zip',
-            icon: 'document',
+            icon: 'download',
           },
           component: 'two/zip',
         },
@@ -91,7 +115,7 @@ app.post('/getList', (req, res) => {
             hidden: false,
             keepAlive: true,
             title: 'Icons',
-            icon: 'document',
+            icon: 'icon',
           },
           component: 'two/icons',
         },

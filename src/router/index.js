@@ -17,7 +17,7 @@ export const constantRoutes = [
         path: '/home',
         name: 'home',
         meta: {
-          icon: "homepage",
+          icon: 'homepage',
           title: '瀑布流',
           hidden: false,
         },
@@ -34,33 +34,11 @@ export const constantRoutes = [
     },
     component: () => import('@/views/login/index.vue'),
   },
-  // {
-  //   meta: {
-  //     hidden: false,
-  //     title: '系统管理',
-  //   },
-  //   component: () => import('@/Layout/index.vue'),
-  //   name: '/system',
-  //   path: '/system',
-  //   redirect: '/system/two',
-  //   children: [
-  //     {
-  //       name: 'Two',
-  //       path: 'two',
-  //       meta: {
-  //         hidden: false,
-  //         keepAlive: true,
-  //         title: '用户管理',
-  //       },
-  //       component: () => import('@/views/two/index.vue'),
-  //     },
-  //   ],
-  // }
   {
     name: '404',
     path: '/:catchAll(.*)',
-    component: () => import(`@/views/404.vue`)
-  }
+    component: () => import(`@/views/404.vue`),
+  },
 ]
 
 const router = createRouter({
@@ -74,8 +52,8 @@ const router = createRouter({
  * 重置路由
  */
 export function resetRouter() {
-  router.replace({ path: '/login' });
-  location.reload();
+  router.replace({ path: '/login' })
+  location.reload()
 }
 
 export default router

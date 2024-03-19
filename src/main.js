@@ -5,6 +5,9 @@ import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import router from '@/router/index'
 import ElementPlus from 'element-plus'
 
+// 引入echarts
+import ECharts from 'vue-echarts'
+
 import './assets/css/reset.css'
 import 'virtual:svg-icons-register'
 import 'uno.css'
@@ -22,6 +25,8 @@ for (const [key, value] of Object.entries(components)) {
   const name = key.slice(0, key.lastIndexOf('/')).split('/').pop()
   app.component(name, defineAsyncComponent(value))
 }
+
+app.component('v-chart', ECharts)
 
 app.use(pinia)
 app.use(ElementPlus)

@@ -1,6 +1,8 @@
-# vue-erciyuan-admin
+# <%= name %>
 
-> A template based on Vue3 + Vite + UnoCSS
+<% if (description) { %>
+> <%= description %>
+<% } %>
 
 ## Usage
 

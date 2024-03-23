@@ -1,7 +1,8 @@
 {
-  "name": "vue-erciyuan-admin",
+  "name": "<%= name %>",
   "private": true,
-  "version": "0.0.1",
+  "version": "<%= version %>",
+  "description": "<%= description %>",
   "type": "module",
   "scripts": {
     "dev": "vite",

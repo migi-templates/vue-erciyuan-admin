@@ -1,9 +1,7 @@
 # <%= name %>
-
 <% if (description) { %>
 > <%= description %>
 <% } %>
-
 ## Usage
 
 install deps:

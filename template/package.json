@@ -1,8 +1,8 @@
 {
   "name": "<%= name %>",
   "private": true,
-  "version": "<%= version %>",
-  <% if(description){ %>"description": "<%= description %>",<% } %>
+  "version": "<%= version %>",<% if(description){ %>
+  "description": "<%= description %>",<% } %>
   "type": "module",
   "scripts": {
     "dev": "vite",

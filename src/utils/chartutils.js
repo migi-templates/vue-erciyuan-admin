@@ -65,7 +65,7 @@ export default {
     return {
       left: left ? left : '30vh',
       right: right ? right : '10vh',
-      top: top ? top : '10vh',
+      top: top ? top : '15vh',
       bottom: bottom ? bottom : '40vh',
     }
   },
@@ -288,11 +288,13 @@ export default {
       option[key] = option_[key]
     }
   },
-  initBarChart: function (option, category, values, color, title) {
+
+  //
+  initBarChart: function (option, category, values, color, bgColor = '#303133', title) {
     let option_ = {
-      backgroundColor: '#000616',
+      backgroundColor: bgColor,
       title: title ? this.createChartTitle(title) : null,
-      grid: this.createChartGaid('30vh', '10vh', title ? '35vh' : '15vh', '20vh'),
+      grid: this.createChartGaid('50vh', 0, title ? '35vh' : '20vh', '20vh'),
       tooltip: {
         trigger: 'axis',
         axisPointer: {
@@ -636,8 +638,7 @@ export default {
     }
   },
 
-
   random: (max) => {
-		return (Math.random(max) * max).toFixed(0);
-	}
+    return (Math.random(max) * max).toFixed(0)
+  },
 }

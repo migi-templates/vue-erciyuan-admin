@@ -121,6 +121,31 @@ app.post('/getList', (req, res) => {
         },
       ],
     },
+
+    {
+      meta: {
+        hidden: false,
+        title: 'tree',
+        icon: 'document',
+      },
+      component: 'Layout',
+      name: '/tree',
+      path: '/tree',
+      redirect: '/tree/cascade',
+      children: [
+        {
+          name: 'Cascade',
+          path: 'Cascade',
+          meta: {
+            hidden: false,
+            keepAlive: true,
+            title: '级联组件',
+            icon: 'document',
+          },
+          component: 'tree/cascade',
+        },
+      ],
+    },
   ]
 
   res.status(200).send(list)

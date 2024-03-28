@@ -11,7 +11,7 @@ import { reactive, onMounted, onBeforeUnmount, ref } from 'vue'
 
 import chartutils from '@/utils/chartutils'
 
-let countchart = ref();
+let countchart = ref(null);
 let countchartoption = reactive({}) // 自定义配置
 let countchartcategory = reactive(['地市营销数据', '行业专卖数据'])
 let countchartvalue = reactive([])

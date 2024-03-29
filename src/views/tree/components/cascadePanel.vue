@@ -4,14 +4,19 @@
             <div v-for="(item, index) in dataList" :key="index" @click="() => change(index)"
                 :class="{ 'bg-#eff7ff text-#0FA3FF': Number(index) === childActiveId }"
                 class="flex items-center pr-10px">
-                <slot name="list" :data="item"></slot>
+                <slot name="list" :data="item" :index="index"></slot>
                 <!-- <div v-if="Number(index) === childActiveId" class="el-icon-arrow-right text-14px ml-auto text-#2fafff">
                 </div> -->
             </div>
         </div>
         <div :class="'out_level_' + (propsIndex + 1)"
             v-if="dataList[childActiveId] && dataList[childActiveId].children !== 0">
-            <cascade-panel :dataList="dataList[childActiveId].children" :propsIndex="propsIndex + 1" />
+  
+            <cascade-panel ref="cascadeRef" :dataList="dataList[childActiveId].children" :propsIndex="propsIndex + 1">
+                <template #list="slotProps">
+                    <slot name="list" :data="slotProps.data"></slot>
+                </template>
+            </cascade-panel>
         </div>
     </div>
 </template>

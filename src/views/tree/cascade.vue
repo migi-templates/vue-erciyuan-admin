@@ -14,7 +14,7 @@
             </div>
 
             <div class="flex-1 h-0">
-                <cascadePanel :datalist="dataList">
+                <cascade-panel :dataList="dataList">
                     <template #list="slotProps">
                         <div class="min-w-120px pl-15px h-32px cursor-pointer flex items-center">
                             <el-checkbox :indeterminate="getCheckStatus(slotProps.data)"
@@ -22,10 +22,10 @@
                                 @change="(e) => getData(e, slotProps.data)"></el-checkbox>
                             <div class="ml-10px">{{ slotProps.data.label }}</div>
                             <div v-if="slotProps.data.level && slotProps.data.level == 1">（{{
-                        getLastCheck(slotProps.index) }}）</div>
+                                getLastCheck(slotProps.index)}}）</div>
                         </div>
                     </template>
-                </cascadePanel>
+                </cascade-panel>
             </div>
         </div>
     </div>

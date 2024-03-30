@@ -5,13 +5,14 @@
                 :class="{ 'bg-#eff7ff text-#0FA3FF': Number(index) === childActiveId }"
                 class="flex items-center pr-10px">
                 <slot name="list" :data="item" :index="index"></slot>
-                <!-- <div v-if="Number(index) === childActiveId" class="el-icon-arrow-right text-14px ml-auto text-#2fafff">
-                </div> -->
+                <el-icon v-if="Number(index) === childActiveId" size="14px" color="#2fafff" class="ml-auto">
+                    <ArrowRightBold />
+                </el-icon>
             </div>
         </div>
         <div :class="'out_level_' + (propsIndex + 1)"
             v-if="dataList[childActiveId] && dataList[childActiveId].children !== 0">
-  
+
             <cascade-panel ref="cascadeRef" :dataList="dataList[childActiveId].children" :propsIndex="propsIndex + 1">
                 <template #list="slotProps">
                     <slot name="list" :data="slotProps.data"></slot>

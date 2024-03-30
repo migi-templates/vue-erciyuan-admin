@@ -27,7 +27,7 @@ export default {
 }
 </script>
 <script setup>
-import { ref } from 'vue';
+import { ref, defineExpose } from 'vue';
 const props = defineProps({
     dataList: {
         type: Array,
@@ -38,16 +38,12 @@ const props = defineProps({
         type: Number
     }
 });
-
-
 const childActiveId = ref(0);
 const cascadeRef = ref(null)
 
 const init = () => {
     childActiveId.value = 0;
-    if (cascadeRef.value) {
-        cascadeRef.value.init();
-    }
+    cascadeRef.value && cascadeRef.value.init();
 };
 
 const change = (index) => {
@@ -55,4 +51,7 @@ const change = (index) => {
     // 点击之后下一个组件显示，activeId初始化0
     childActiveId.value = index;
 };
+defineExpose({
+    init
+})
 </script>

@@ -119,6 +119,17 @@ app.post('/getList', (req, res) => {
           },
           component: 'two/icons',
         },
+        {
+          name: 'UseTabs',
+          path: 'useTabs',
+          meta: {
+            hidden: false,
+            keepAlive: true,
+            title: 'UseTabs',
+            icon: 'icon',
+          },
+          component: 'two/usetabs',
+        },
       ],
     },
 

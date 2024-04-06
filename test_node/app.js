@@ -30,30 +30,6 @@ app.post('/getList', (req, res) => {
     {
       meta: {
         hidden: false,
-        title: 'echarts',
-        icon: 'document',
-      },
-      component: 'Layout',
-      name: '/echarts',
-      path: '/echarts',
-      redirect: '/echarts/echarts',
-      children: [
-        {
-          name: 'echarts',
-          path: 'echarts',
-          meta: {
-            hidden: false,
-            keepAlive: true,
-            title: 'echarts',
-            icon: 'document',
-          },
-          component: 'echarts/index', // 文件夹/文件名
-        },
-      ],
-    },
-    {
-      meta: {
-        hidden: false,
         title: '宝可梦',
         icon: 'document',
       },

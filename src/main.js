@@ -6,9 +6,6 @@ import router from '@/router/index'
 import ElementPlus from 'element-plus'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
-// 引入echarts
-import ECharts from 'vue-echarts'
-
 import './assets/css/reset.css'
 import 'virtual:svg-icons-register'
 import 'uno.css'
@@ -31,7 +28,6 @@ for (const [key, value] of Object.entries(components)) {
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
-app.component('v-chart', ECharts)
 
 app.use(pinia)
 app.use(ElementPlus)

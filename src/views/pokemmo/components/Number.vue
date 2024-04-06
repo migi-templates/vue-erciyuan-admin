@@ -48,7 +48,6 @@ const initPokemons = async () => {
   }
 }
 onMounted(() => {
-  console.log(store.pokemmo, '2312')
   initPokemons()
 })
 </script>

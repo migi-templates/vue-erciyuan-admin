@@ -106,30 +106,16 @@ app.post('/getList', (req, res) => {
           },
           component: 'two/usetabs',
         },
-      ],
-    },
-
-    {
-      meta: {
-        hidden: false,
-        title: 'tree',
-        icon: 'document',
-      },
-      component: 'Layout',
-      name: '/tree',
-      path: '/tree',
-      redirect: '/tree/cascade',
-      children: [
         {
           name: 'Cascade',
-          path: 'Cascade',
+          path: 'cascade',
           meta: {
             hidden: false,
             keepAlive: true,
             title: '级联组件',
             icon: 'document',
           },
-          component: 'tree/cascade',
+          component: 'two/cascade',
         },
       ],
     },

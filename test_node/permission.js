@@ -17,7 +17,7 @@ export const list = [
           hidden: false,
           keepAlive: true,
           title: '宝可梦',
-          icon: 'document',
+          icon: 'pokemmo',
         },
         component: 'pokemmo/index',
       },
